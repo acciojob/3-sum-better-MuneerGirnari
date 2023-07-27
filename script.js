@@ -1,19 +1,27 @@
 function threeSum(arr, target) {
 // write your code here
-    let [i,j,k] = [0,1,2];
-    let dif = Integter.MAX_VALUE;
-    while(i<=arr.length-3){
-        while(j<=arr.length-2 && k<=arr.length-1){
+    arr.sort((a,b)=>a-b);
+    let dif = Number.MAX_VALUE;
+    for(let i=0;i<arr.length-2;i++){
+        let j = i+1;
+        let k = arr.length-1;
+        while(j<k){
             let sum = arr[i]+arr[j]+arr[k];
-            let ans = Math.abs(target - sum);
-            ans = ans < dif? ans : dif;
-            j++;
-            k++;
+            if(Math.abs(target-sum)<Math.abs(target-dif)){
+                dif=sum;
+            }
+            if(sum<target){
+                j++;
+            }
+            else if(sum>target){
+                k--;
+            }
+            else{
+                return sum;
+            }
         }
-        i++;
     }
-    return ans;
-
+    return sum;
 }
 
 module.exports = threeSum;
