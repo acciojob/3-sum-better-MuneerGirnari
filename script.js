@@ -17,11 +17,11 @@ function threeSum(arr, target) {
                 k--;
             }
             else{
-                return sum;
+                return dif;
             }
         }
     }
-    return sum;
+    return dif;
 }
 
 module.exports = threeSum;
