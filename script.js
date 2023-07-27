@@ -5,13 +5,15 @@ function threeSum(arr, target) {
     while(i<=arr.length-3){
         while(j<=arr.length-2 && k<=arr.length-1){
             let sum = arr[i]+arr[j]+arr[k];
-            let ans = target - sum < dif? sum : dif;
+            let ans = Math.abs(target - sum);
+            ans = ans < dif? ans : dif;
             j++;
             k++;
         }
         i++;
     }
     return ans;
+
 }
 
 module.exports = threeSum;
